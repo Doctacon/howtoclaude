@@ -1,0 +1,16 @@
+# Presenterm
+*.pdf
+
+# macOS
+.DS_Store
+
+# Claude Code
+.claude/
+.beads/
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
