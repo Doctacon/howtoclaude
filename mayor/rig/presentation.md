@@ -12,7 +12,6 @@ Claude Code is Anthropic's **agentic coding tool** that lives in your terminal, 
 
 __Unlike traditional AI assistants__, Claude Code integrates directly with your development environment, taking action on your behalf rather than just generating text.
 
----
 
 ## Key Capabilities
 
@@ -28,7 +27,6 @@ Ask questions about your project and get thoughtful answers with full context aw
 **Automate tedious tasks**
 Fix lint issues, resolve merge conflicts, write release notes—all via single commands.
 
----
 
 ## Installation
 
@@ -48,7 +46,6 @@ claude
 
 **Prerequisites**: Claude subscription (Pro, Max, Teams, Enterprise) or Claude Console account
 
----
 
 ## Core Concepts
 
@@ -59,7 +56,6 @@ Claude Code extends through **four key mechanisms**:
 3. **Slash Commands** - Reusable workflows (manual invocation)
 4. **Agent Skills** - Context-aware capabilities (automatic invocation)
 
----
 
 ## CLAUDE.md
 
@@ -72,7 +68,6 @@ A markdown file in your project root that provides context about your codebase, 
 - Keep it concise—overload reduces effectiveness
 - Use progressive disclosure: simple → complex
 
----
 
 ## MCP (Model Context Protocol)
 
@@ -85,7 +80,6 @@ Claude Code functions as both an MCP **server** and **client**, connecting to hu
 - Integrate designs from Figma, Google Drive
 - Automate workflows with Gmail, Slack, Asana
 
----
 
 ## Installing MCP Servers
 
@@ -105,7 +99,6 @@ claude mcp add --transport stdio --env API_KEY=xxx api -- npx -y server-package
 - **Project**: Team-shared via `.mcp.json` in version control
 - **User**: Cross-project in `~/.claude.json`
 
----
 
 ## Slash Commands
 
@@ -124,7 +117,6 @@ performance problems, and maintainability.
 
 Usage: `/review`
 
----
 
 ## Agent Skills
 
@@ -138,14 +130,14 @@ Model-invoked extensions that activate **automatically** based on task context.
 
 **Custom Skills:**
 Create `SKILL.md` files with YAML frontmatter:
-```yaml
----
+
+```text
 name: code-review
-description: Review code for security, performance, and maintainability. Use when reviewing code changes, PRs, or analyzing code quality.
----
+description: Review code for security, performance, and maintainability
 ```
 
----
+The `---` delimiters wrap the frontmatter section.
+
 
 ## Permission Modes
 
@@ -160,7 +152,6 @@ Pre-approves all edits. For trusted workflows.
 
 **Cycle modes**: `Shift+Tab`
 
----
 
 ## Extended Thinking
 
@@ -175,7 +166,6 @@ Up to 31,999 tokens for internal reasoning on complex tasks.
 
 **Best for**: Complex architectural decisions, challenging bugs, multi-step planning
 
----
 
 ## Plan Mode
 
@@ -191,7 +181,6 @@ Up to 31,999 tokens for internal reasoning on complex tasks.
 
 **Use cases**: Multi-step implementations, code exploration, interactive development
 
----
 
 ## Interview Mode
 
@@ -204,7 +193,6 @@ Let Claude interview you to fill in requirements for large features.
 
 **When to use**: Large features, ambiguous requirements, complex user stories
 
----
 
 ## Session Management
 
@@ -220,7 +208,6 @@ claude --resume        # Picker for previous sessions
 
 **Fork sessions**: Use `/rewind` or `--fork-session` for experimentation
 
----
 
 ## Git Integration
 
@@ -235,7 +222,6 @@ claude --resume        # Picker for previous sessions
 
 **Branch management**: Create branches, manage worktrees
 
----
 
 ## GitHub Actions Integration
 
@@ -249,7 +235,6 @@ claude --resume        # Picker for previous sessions
 
 **Enterprise**: Custom GitHub Apps, OIDC authentication
 
----
 
 ## Essential Commands
 
@@ -264,7 +249,6 @@ claude --resume        # Picker for previous sessions
 | `/help` | Show available commands |
 | `/clear` | Clear conversation history |
 
----
 
 ## Keyboard Shortcuts
 
@@ -275,7 +259,6 @@ claude --resume        # Picker for previous sessions
 | `Shift+Tab` | Cycle permission modes |
 | `Option/Alt+T` | Toggle thinking mode |
 
----
 
 ## Best Practices: Plan Then Execute
 
@@ -288,7 +271,6 @@ For complex tasks:
 
 This workflow prevents costly mistakes and ensures alignment.
 
----
 
 ## Best Practices: Task-Based Execution
 
@@ -300,7 +282,6 @@ Leverage session naming to track multiple workstreams
 
 **Example**: Instead of "build the entire auth system", try "add password reset flow" then "add 2FA integration"
 
----
 
 ## Best Practices: Project Memory
 
@@ -313,7 +294,6 @@ Use `CLAUDE.md` at repository root for:
 
 **Progressive disclosure**: Start simple, layer in complexity
 
----
 
 ## Best Practices: Prompting
 
@@ -327,7 +307,6 @@ Use `CLAUDE.md` at repository root for:
 
 **Example**: "Add input validation to prevent SQL injection in the user signup form" is better than "fix security issues"
 
----
 
 ## Security and Permissions
 
@@ -344,7 +323,6 @@ Use `CLAUDE.md` at repository root for:
 - Network configuration for corporate proxies
 - AWS/GCP hosting for data residency
 
----
 
 ## Cost Optimization
 
@@ -359,7 +337,6 @@ Use `CLAUDE.md` at repository root for:
 - Set `MAX_THINKING_TOKENS` appropriately
 - Enable tool search when MCP definitions exceed 10% of context
 
----
 
 ## Team Collaboration
 
@@ -374,7 +351,6 @@ Use `CLAUDE.md` at repository root for:
 - Define review criteria in Skills
 - Leverage Plan Mode for PR analysis
 
----
 
 ## Common Workflows
 
@@ -396,7 +372,6 @@ Use `CLAUDE.md` at repository root for:
 2. Claude analyzes changes
 3. Claude provides feedback
 
----
 
 ## Why Developers Love Claude Code
 
@@ -412,7 +387,6 @@ Composable and scriptable—pipes and redirects work naturally
 **Enterprise-ready**
 AWS/GCP hosting, enterprise-grade security and compliance
 
----
 
 ## Resources
 
@@ -430,7 +404,6 @@ AWS/GCP hosting, enterprise-grade security and compliance
 **Built-in Help:**
 Type `/help` in Claude Code for commands and configuration
 
----
 
 ## Summary
 
@@ -450,7 +423,6 @@ Claude Code = AI-powered development partner
 
 _Together, you ship code faster._
 
----
 
 ## Questions?
 
