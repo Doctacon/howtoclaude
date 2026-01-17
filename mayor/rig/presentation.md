@@ -6,29 +6,38 @@ theme:
   name: dark
 ---
 
-## What is Claude Code?
+What is Claude Code?
+---
 
 Claude Code is Anthropic's **agentic coding tool** that lives in your terminal, understands your codebase, and helps you code faster by executing routine tasks, explaining complex code, and handling git workflows—all through natural language commands.
 
 __Unlike traditional AI assistants__, Claude Code integrates directly with your development environment, taking action on your behalf rather than just generating text.
 
+<!-- end_slide -->
 
-## Key Capabilities
+Key Capabilities
+---
 
 **Build features from descriptions**
+
 Tell Claude what you want in plain English. It plans, writes code, and ensures it works.
 
 **Debug and fix issues**
+
 Describe bugs or paste errors. Claude analyzes your codebase, identifies problems, and implements fixes.
 
 **Navigate any codebase**
+
 Ask questions about your project and get thoughtful answers with full context awareness.
 
 **Automate tedious tasks**
+
 Fix lint issues, resolve merge conflicts, write release notes—all via single commands.
 
+<!-- end_slide -->
 
-## Installation
+Installation
+---
 
 ```bash
 # Native Install (Recommended)
@@ -46,8 +55,10 @@ claude
 
 **Prerequisites**: Claude subscription (Pro, Max, Teams, Enterprise) or Claude Console account
 
+<!-- end_slide -->
 
-## Core Concepts
+Core Concepts
+---
 
 Claude Code extends through **four key mechanisms**:
 
@@ -56,32 +67,40 @@ Claude Code extends through **four key mechanisms**:
 3. **Slash Commands** - Reusable workflows (manual invocation)
 4. **Agent Skills** - Context-aware capabilities (automatic invocation)
 
+<!-- end_slide -->
 
-## CLAUDE.md
+CLAUDE.md
+---
 
 A markdown file in your project root that provides context about your codebase, conventions, and preferences.
 
 **Best practices:**
+
 - Start with a one-liner explaining the project
 - Include specific, actionable code style preferences
 - Add architecture context when relevant
 - Keep it concise—overload reduces effectiveness
 - Use progressive disclosure: simple → complex
 
+<!-- end_slide -->
 
-## MCP (Model Context Protocol)
+MCP (Model Context Protocol)
+---
 
 Claude Code functions as both an MCP **server** and **client**, connecting to hundreds of external tools and data sources.
 
 **What MCP enables:**
+
 - Implement features from JIRA, GitHub Issues
 - Analyze monitoring data from Sentry, Statsig
 - Query databases (PostgreSQL, MongoDB)
 - Integrate designs from Figma, Google Drive
 - Automate workflows with Gmail, Slack, Asana
 
+<!-- end_slide -->
 
-## Installing MCP Servers
+Installing MCP Servers
+---
 
 ```bash
 # HTTP servers (recommended for cloud services)
@@ -95,21 +114,26 @@ claude mcp add --transport stdio --env API_KEY=xxx api -- npx -y server-package
 ```
 
 **MCP scopes:**
+
 - **Local**: Project-specific (`~/.claude.json`)
 - **Project**: Team-shared via `.mcp.json` in version control
 - **User**: Cross-project in `~/.claude.json`
 
+<!-- end_slide -->
 
-## Slash Commands
+Slash Commands
+---
 
 Reusable workflows you invoke manually with `/command` syntax.
 
 **Installation:**
+
 - Project-specific: `.claude/commands/`
 - Personal: `~/.claude/commands/` for global use
 
 **Example:**
-```markdown
+
+```
 <!-- .claude/commands/review.md -->
 Review the current changes for security issues,
 performance problems, and maintainability.
@@ -117,45 +141,57 @@ performance problems, and maintainability.
 
 Usage: `/review`
 
+<!-- end_slide -->
 
-## Agent Skills
+Agent Skills
+---
 
 Model-invoked extensions that activate **automatically** based on task context.
 
 **Built-in Skills:**
+
 - `commit-message-generator` - Generates commit messages from diffs
 - `review-pr` - Reviews PRs by analyzing changes
 - `summarize-project` - Provides project overviews
 - `summarize-text` - Condenses long documents
 
 **Custom Skills:**
+
 Create `SKILL.md` files with YAML frontmatter:
 
-```text
+```
 name: code-review
 description: Review code for security, performance, and maintainability
 ```
 
 The `---` delimiters wrap the frontmatter section.
 
+<!-- end_slide -->
 
-## Permission Modes
+Permission Modes
+---
 
 **Plan Mode** (`⏸ plan mode on`)
+
 Read-only exploration. Perfect for new codebases and planning.
 
 **Normal Mode**
+
 Asks before each action. Safe for learning.
 
 **Auto-Accept Mode** (`⏵⏵ accept edits on`)
+
 Pre-approves all edits. For trusted workflows.
 
 **Cycle modes**: `Shift+Tab`
 
+<!-- end_slide -->
 
-## Extended Thinking
+Extended Thinking
+---
 
 **Thinking Mode** (default: enabled)
+
 Up to 31,999 tokens for internal reasoning on complex tasks.
 
 **Toggle**: `Option+T` (macOS) or `Alt+T` (Windows/Linux)
@@ -166,14 +202,17 @@ Up to 31,999 tokens for internal reasoning on complex tasks.
 
 **Best for**: Complex architectural decisions, challenging bugs, multi-step planning
 
+<!-- end_slide -->
 
-## Plan Mode
+Plan Mode
+---
 
 **Purpose**: Read-only analysis for safe code exploration and planning
 
 **Activation**: `Shift+Tab` to cycle modes or `claude --permission-mode plan`
 
 **Workflow:**
+
 1. Start in Plan Mode for complex tasks
 2. Let Claude interview you to clarify requirements
 3. Review the plan before implementation
@@ -181,22 +220,28 @@ Up to 31,999 tokens for internal reasoning on complex tasks.
 
 **Use cases**: Multi-step implementations, code exploration, interactive development
 
+<!-- end_slide -->
 
-## Interview Mode
+Interview Mode
+---
 
 Let Claude interview you to fill in requirements for large features.
 
 **Benefits:**
+
 - Produces better specs than anticipating everything upfront
 - Uses multiple-choice requirement gathering
 - Most active in Plan Mode
 
 **When to use**: Large features, ambiguous requirements, complex user stories
 
+<!-- end_slide -->
 
-## Session Management
+Session Management
+---
 
 **Resume sessions:**
+
 ```bash
 claude --continue      # Most recent conversation
 claude --resume        # Picker for previous sessions
@@ -208,10 +253,13 @@ claude --resume        # Picker for previous sessions
 
 **Fork sessions**: Use `/rewind` or `--fork-session` for experimentation
 
+<!-- end_slide -->
 
-## Git Integration
+Git Integration
+---
 
 **Conversational Git operations:**
+
 - "commit my changes"
 - "show last 5 commits"
 - "create a new branch called feature/auth"
@@ -222,8 +270,10 @@ claude --resume        # Picker for previous sessions
 
 **Branch management**: Create branches, manage worktrees
 
+<!-- end_slide -->
 
-## GitHub Actions Integration
+GitHub Actions Integration
+---
 
 **Quick setup**: Run `/install-github-app` command
 
@@ -235,8 +285,10 @@ claude --resume        # Picker for previous sessions
 
 **Enterprise**: Custom GitHub Apps, OIDC authentication
 
+<!-- end_slide -->
 
-## Essential Commands
+Essential Commands
+---
 
 | Command | Purpose |
 |---------|---------|
@@ -249,8 +301,10 @@ claude --resume        # Picker for previous sessions
 | `/help` | Show available commands |
 | `/clear` | Clear conversation history |
 
+<!-- end_slide -->
 
-## Keyboard Shortcuts
+Keyboard Shortcuts
+---
 
 | Shortcut | Action |
 |----------|--------|
@@ -259,8 +313,10 @@ claude --resume        # Picker for previous sessions
 | `Shift+Tab` | Cycle permission modes |
 | `Option/Alt+T` | Toggle thinking mode |
 
+<!-- end_slide -->
 
-## Best Practices: Plan Then Execute
+Best Practices: Plan Then Execute
+---
 
 For complex tasks:
 
@@ -271,8 +327,10 @@ For complex tasks:
 
 This workflow prevents costly mistakes and ensures alignment.
 
+<!-- end_slide -->
 
-## Best Practices: Task-Based Execution
+Best Practices: Task-Based Execution
+---
 
 **Break large features into smaller, testable chunks**
 
@@ -282,10 +340,13 @@ Leverage session naming to track multiple workstreams
 
 **Example**: Instead of "build the entire auth system", try "add password reset flow" then "add 2FA integration"
 
+<!-- end_slide -->
 
-## Best Practices: Project Memory
+Best Practices: Project Memory
+---
 
 Use `CLAUDE.md` at repository root for:
+
 - Coding standards and style preferences
 - Review criteria and quality gates
 - Preferred patterns and conventions
@@ -294,8 +355,10 @@ Use `CLAUDE.md` at repository root for:
 
 **Progressive disclosure**: Start simple, layer in complexity
 
+<!-- end_slide -->
 
-## Best Practices: Prompting
+Best Practices: Prompting
+---
 
 **Be specific** about what behavior you want to verify
 
@@ -307,54 +370,69 @@ Use `CLAUDE.md` at repository root for:
 
 **Example**: "Add input validation to prevent SQL injection in the user signup form" is better than "fix security issues"
 
+<!-- end_slide -->
 
-## Security and Permissions
+Security and Permissions
+---
 
 **Permission Modes control what Claude can do:**
+
 - **Plan Mode**: No edits, read-only
 - **Normal Mode**: Approval required for each action
 - **Auto-Accept**: Pre-approve all edits
 
 **Tool Restrictions**: Configure allowed/disallowed tools in `settings.json`
 
-**Enterprise Security**:
+**Enterprise Security:**
+
 - SAML/OIDC for SSO integration
 - Managed MCP for centralized server control
 - Network configuration for corporate proxies
 - AWS/GCP hosting for data residency
 
+<!-- end_slide -->
 
-## Cost Optimization
+Cost Optimization
+---
 
 **GitHub Actions:**
+
 - Use specific `@claude` commands to reduce API calls
 - Configure `--max-turns` to prevent excessive iterations
 - Set workflow-level timeouts
 
 **API Usage:**
+
 - Be specific in prompts to reduce token usage
 - Use Plan Mode to avoid unnecessary edits
 - Set `MAX_THINKING_TOKENS` appropriately
 - Enable tool search when MCP definitions exceed 10% of context
 
+<!-- end_slide -->
 
-## Team Collaboration
+Team Collaboration
+---
 
 **Shared Configuration:**
+
 - Check `.claude/` directory into version control
 - Use project-scoped MCP servers via `.mcp.json`
 - Create team marketplaces for plugin distribution
 - Document conventions in `CLAUDE.md`
 
 **Code Reviews:**
+
 - Use `/review` slash command for consistency
 - Define review criteria in Skills
 - Leverage Plan Mode for PR analysis
 
+<!-- end_slide -->
 
-## Common Workflows
+Common Workflows
+---
 
 **Adding a feature:**
+
 1. Describe what you want
 2. Claude explores the codebase (use Plan Mode)
 3. Claude identifies files to modify
@@ -362,54 +440,71 @@ Use `CLAUDE.md` at repository root for:
 5. Claude runs tests to verify
 
 **Debugging:**
+
 1. Paste the error message
 2. Claude investigates in Plan Mode
 3. Claude proposes fixes
 4. Claude tests the solution
 
 **Code review:**
+
 1. Use `/review` or `review-pr` skill
 2. Claude analyzes changes
 3. Claude provides feedback
 
+<!-- end_slide -->
 
-## Why Developers Love Claude Code
+Why Developers Love Claude Code
+---
 
 **Terminal-native**
+
 Works where you already work—not another chat window or IDE
 
 **Action-oriented**
+
 Can directly edit files, run commands, and create commits
 
 **Unix philosophy**
+
 Composable and scriptable—pipes and redirects work naturally
 
 **Enterprise-ready**
+
 AWS/GCP hosting, enterprise-grade security and compliance
 
+<!-- end_slide -->
 
-## Resources
+Resources
+---
 
 **Official Documentation:**
+
 - code.claude.com/docs
 - platform.claude.com/docs
 
 **GitHub:**
+
 - github.com/anthropics/claude-code
 
 **Community:**
+
 - Community Discord
 - GitHub Issues for bug reports
 
 **Built-in Help:**
+
 Type `/help` in Claude Code for commands and configuration
 
+<!-- end_slide -->
 
-## Summary
+Summary
+---
 
 Claude Code = AI-powered development partner
 
 **Key capabilities:**
+
 - Builds features from descriptions
 - Debugs and fixes issues
 - Navigates complex codebases
@@ -417,16 +512,20 @@ Claude Code = AI-powered development partner
 - Integrates with tools via MCP
 
 **Your role:**
+
 - Provide clear direction
 - Review and approve changes
 - Give feedback and iterate
 
 _Together, you ship code faster._
 
+<!-- end_slide -->
 
-## Questions?
+Questions?
+---
 
 **Key takeaways:**
+
 - Start with `CLAUDE.md` for project context
 - Use Plan Mode for complex tasks
 - Extend with MCP, Skills, and Commands
@@ -436,3 +535,5 @@ _Together, you ship code faster._
 __Thanks for watching!__
 
 code.claude.com | github.com/anthropics/claude-code
+
+<!-- end_slide -->
